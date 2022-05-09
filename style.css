@@ -10,6 +10,7 @@ html{
     border: none;
     background: none;
 }
+
 /* Global */
 .container{
     display: flex;
@@ -43,6 +44,7 @@ html{
 .hide-show-btn{
     background-color: #eee;
 }
+
 /* Grid */
 .grid-container{
     width: 500px;
@@ -58,4 +60,18 @@ html{
 }
 .hide{
     border: none;
+}
+
+/* Media Query */
+@media (max-width: 500px){
+    .grid-container{
+        width: 400px;
+        height: 400px;
+    }
+}
+@media (max-width: 400px){
+    .grid-container{
+        width: 300px;
+        height: 300px;
+    }
 }
