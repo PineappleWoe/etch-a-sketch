@@ -1,0 +1,22 @@
+/* Reset */
+html{
+    box-sizing: border-box;
+}
+*{
+    box-sizing: inherit;
+}
+/* Grid */
+.grid{
+    height: 500px;
+    width: 500px;
+    display: flex;
+}
+.grid-column{
+    min-height: 100%;
+    width: 100%;
+}
+.grid-row{
+    max-height: 100px;
+    max-width: 100px;
+    border: 1px solid;
+}
