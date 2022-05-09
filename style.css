@@ -6,17 +6,11 @@ html{
     box-sizing: inherit;
 }
 /* Grid */
-.grid{
-    height: 500px;
+.grid-container{
     width: 500px;
-    display: flex;
+    height: 500px;
 }
-.grid-column{
-    min-height: 100%;
-    width: 100%;
-}
-.grid-row{
-    max-height: 100px;
-    max-width: 100px;
-    border: 1px solid;
+.grid-square{
+    border: 1px solid #000;
+    background-color: #fff;
 }
