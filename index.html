@@ -8,8 +8,24 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="grid-container"></div>
+    <div class="container">
+        <div class="header">
+            <h1 class="header-main">Etch-a-Sketch</h1>
+        </div>
 
+        <div class="grid-controls">
+            <div class="grid-size">
+                <p>Grid Size</p>
+                <input type="range" min="16" max="100" value="16" id="grid-size" class="slider">
+            </div>
+        </div>
+        
+
+        <div class="etch-a-sketch">
+            <div class="grid-container"></div>
+        </div>
+    </div>
+    
     <script src="script.js"></script>
 </body>
 </html>

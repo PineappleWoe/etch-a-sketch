@@ -5,10 +5,26 @@ html{
 *{
     box-sizing: inherit;
 }
+/* Global */
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.header{
+    text-align: center;
+}
+.slider{
+    width: 500px;
+}
 /* Grid */
 .grid-container{
     width: 500px;
     height: 500px;
+    margin: 20px auto;
 }
 .grid-square{
     border: 1px solid #000;
