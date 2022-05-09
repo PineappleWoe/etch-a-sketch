@@ -5,6 +5,11 @@ html{
 *{
     box-sizing: inherit;
 }
+.btn{
+    padding: 0;
+    border: none;
+    background: none;
+}
 /* Global */
 .container{
     display: flex;
@@ -17,8 +22,26 @@ html{
 .header{
     text-align: center;
 }
-.slider{
-    width: 500px;
+.grid-controls{
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-start;
+}
+.grid-controls__grid-size, .grid-controls__grid-color{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.slider, .btn{
+    height: 27px;
+    width: 25%;
+}
+.hide-show-btn{
+    background-color: #eee;
 }
 /* Grid */
 .grid-container{
@@ -32,4 +55,7 @@ html{
 }
 .active{
     background-color: #252525;
+}
+.hide{
+    border: none;
 }

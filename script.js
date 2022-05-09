@@ -4,6 +4,14 @@ let gridSize = 16;
     gridContainer.style.gridTemplateRows = `repeat(${gridSize}, 1fr)`; 
     gridContainer.style.gridTemplateColumns = `repeat(${gridSize}, 1fr)`;
 
+const etchSketch = document.querySelector('.etch-a-sketch');
+let gridValueGuide = document.createElement('p');
+gridValueGuide.textContent = `${gridSize} X ${gridSize}`;
+etchSketch.insertBefore(gridValueGuide, gridContainer);
+
+
+
+// Grid - Main Function
 function createGrid(size) {
     for (let i = 0; i < size; i++){
         const gridColumn = document.createElement('div');
@@ -16,10 +24,12 @@ function createGrid(size) {
             // gridRow.textContent = (j + 1);
             gridContainer.appendChild(gridRow);
         }
-        const gridSquare = document.querySelectorAll('.grid-square');
+        // Enable Drawing for Generated Squares
+        let gridSquare = document.querySelectorAll('.grid-square');
+        let gridColor = document.querySelector('#grid-color');
         for (let i = 0; i < gridSquare.length; i++) {
             gridSquare[i].addEventListener('mouseover', function() {
-                gridSquare[i].classList.add('active');
+                gridSquare[i].style.backgroundColor = `${gridColor.value}`;
             });
         }
     }
@@ -27,6 +37,7 @@ function createGrid(size) {
 
 createGrid(gridSize);
 
+// Grid Size
 const gridSizeSliderValue = document.querySelector('#grid-size');
 gridSizeSliderValue.addEventListener('change', function() {
     gridContainer.innerHTML = "";
@@ -35,7 +46,21 @@ gridSizeSliderValue.addEventListener('change', function() {
     gridContainer.style.gridTemplateRows = `repeat(${gridSize}, 1fr)`; 
     gridContainer.style.gridTemplateColumns = `repeat(${gridSize}, 1fr)`;
 
-    console.log(gridSize);
+    gridValueGuide.textContent = `${gridSize} X ${gridSize}`;
     createGrid(gridSize);
 });
 
+// Hide/Show Grid Borders
+const hideShowButton = document.querySelector('#hide-show');
+hideShowButton.addEventListener('click', function() {
+    const gridBorders = document.querySelectorAll('.grid-square');
+    for (let i = 0; i < gridBorders.length; i++){
+        if (gridBorders[i].classList.contains('hide')){
+            gridBorders[i].classList.remove('hide');
+            hideShowButton.textContent = "Hide Grid Borders";
+        } else {
+            gridBorders[i].classList.add('hide');
+            hideShowButton.textContent = "Show Grid Borders";
+        }
+    }
+});
