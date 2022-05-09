@@ -16,6 +16,12 @@ function createGrid(size) {
             // gridRow.textContent = (j + 1);
             gridContainer.appendChild(gridRow);
         }
+        const gridSquare = document.querySelectorAll('.grid-square');
+        for (let i = 0; i < gridSquare.length; i++) {
+            gridSquare[i].addEventListener('mouseover', function() {
+                gridSquare[i].classList.add('active');
+            });
+        }
     }
 }
 
@@ -32,3 +38,4 @@ gridSizeSliderValue.addEventListener('change', function() {
     console.log(gridSize);
     createGrid(gridSize);
 });
+
