@@ -1,4 +1,4 @@
-const TEXT_DARK = "#55BCC9"
+const TEXT_DARK = "#252525"
 
 const gridContainer = document.querySelector('.grid-container');
 let gridSize = 16;
