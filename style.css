@@ -5,10 +5,21 @@ html{
 *{
     box-sizing: inherit;
 }
+body{
+    margin: 0;
+}
 .btn{
     padding: 0;
     border: none;
     background: none;
+}
+
+/* Root */
+:root{
+    --light-primary: #cafafe;
+    --light-secondary: #97caef;
+    --dark-primary: #55bcc9;
+    --dark-secondary: #fc4445; 
 }
 
 /* Global */
@@ -39,12 +50,12 @@ html{
 }
 .slider, .btn{
     height: 27px;
-    width: 25%;
+    width: 50%;
 }
-.hide-show-btn{
-    background-color: #eee;
+.etch-a-sketch{
+    padding: 10px;
+    border-radius: 4px;
 }
-
 /* Grid */
 .grid-container{
     width: 500px;
@@ -61,7 +72,24 @@ html{
 .hide{
     border: none;
 }
-
+.grid-buttons{
+    width: 100%;
+    display: flex;
+}
+.hide-show-btn, .reset-btn{
+    width: 100%;
+    height: 50px;
+    font-size: 16px;
+    font-weight: 700;
+}
+.hide-show-btn{
+    color: var(--dark-primary);
+    background-color: var(--light-primary);
+}
+.reset-btn{
+    color: #fff;
+    background-color: var(--dark-secondary);
+}
 /* Media Query */
 @media (max-width: 500px){
     .grid-container{

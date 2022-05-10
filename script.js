@@ -1,3 +1,5 @@
+const TEXT_DARK = "#55BCC9"
+
 const gridContainer = document.querySelector('.grid-container');
 let gridSize = 16;
     gridContainer.style.display = "grid";
@@ -6,6 +8,7 @@ let gridSize = 16;
 
 const etchSketch = document.querySelector('.etch-a-sketch');
 let gridValueGuide = document.createElement('p');
+gridValueGuide.style.color = TEXT_DARK;
 gridValueGuide.textContent = `${gridSize} X ${gridSize}`;
 etchSketch.insertBefore(gridValueGuide, gridContainer);
 
@@ -39,7 +42,7 @@ createGrid(gridSize);
 
 // Grid Size
 const gridSizeSliderValue = document.querySelector('#grid-size');
-gridSizeSliderValue.addEventListener('change', function() {
+gridSizeSliderValue.addEventListener('input', function() {
     gridContainer.innerHTML = "";
 
     gridSize = gridSizeSliderValue.value;
