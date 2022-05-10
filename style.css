@@ -23,6 +23,13 @@ body{
 }
 
 /* Global */
+body{
+    width: 100vw;
+    height: 100vh;
+    background: url(assets/liquid-art-background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 .container{
     display: flex;
     flex-direction: column;
@@ -32,11 +39,12 @@ body{
     margin: 0 auto;
 }
 .header{
+    color: #fff;
     text-align: center;
 }
 .grid-controls{
     width: 100%;
-    max-width: 500px;
+    max-width: 520px;
     display: flex;
     justify-content: space-evenly;
     align-items: flex-start;
@@ -52,9 +60,16 @@ body{
     height: 27px;
     width: 50%;
 }
+.grid-controls, .etch-a-sketch{
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+    box-shadow: 0 1px 12px rgba(0, 0, 0, 0.25);
+    background-color: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(20px);
+}
 .etch-a-sketch{
-    padding: 10px;
-    border-radius: 4px;
+    margin: 10px auto;
+    padding: 8px;
 }
 /* Grid */
 .grid-container{
@@ -92,6 +107,12 @@ body{
 }
 /* Media Query */
 @media (max-width: 500px){
+    .grid-controls, .etch-a-sketch{
+        border-radius: 0;
+    }
+    .etch-a-sketch{
+        width: 100%;
+    }
     .grid-container{
         width: 400px;
         height: 400px;
