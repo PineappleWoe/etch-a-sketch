@@ -67,3 +67,13 @@ hideShowButton.addEventListener('click', function() {
         }
     }
 });
+
+// Reset Grid
+const resetButton = document.querySelector('#reset');
+const gridsToReset = document.querySelectorAll('.grid-square');
+
+resetButton.addEventListener('click', function() {
+    gridsToReset.forEach(function(square){
+        square.style.backgroundColor = "#FFFFFF";
+    })
+});
