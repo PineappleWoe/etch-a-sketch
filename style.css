@@ -69,6 +69,17 @@ h1, h2, h3, h4, h5, h6, p{
     height: 27px;
     width: 50%;
 }
+.rainbow-btn{
+    border: 1px solid var(--dark-primary);
+    border-radius: 8px;
+    background: linear-gradient(90deg, var(--light-primary), var(--light-primary));
+}
+.rainbow-btn:hover{
+    color: #fff;
+    background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet, red);
+    transition: .5s ease;
+}
+
 .grid-controls, .etch-a-sketch{
     border: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: 8px;

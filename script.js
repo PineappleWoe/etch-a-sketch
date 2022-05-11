@@ -40,17 +40,19 @@ function createGrid(size) {
     });
 
     for (let x = 0; x < gridSquare.length; x++) {
-        if (rainbowButton.classList.contains('on')){
-            let randomColor = Math.floor(Math.random()*16777215).toString(16);
-            let gridRainbow = "#" + randomColor;
-            gridSquare[x].addEventListener('mouseover', function() {
+
+        function setGridColour(square) {
+            console.log("Hover");
+            if (rainbowButton.classList.contains('on')){
+                let randomColor = Math.floor(Math.random()*16777215).toString(16);
+                let gridRainbow = "#" + randomColor;
                 gridSquare[x].style.backgroundColor = gridRainbow;
-            })
-        } else {
-            gridSquare[x].addEventListener('mouseover', function() {
-                gridSquare[x].style.backgroundColor = `${gridColor.value}`;
-            });
+            } else {
+                gridSquare[x].style.backgroundColor = `${gridColor.value}`
+            }
         }
+    
+        gridSquare[x].addEventListener('mouseover', setGridColour);
     } 
 }
 
@@ -91,7 +93,7 @@ const resetButton = document.querySelector('#reset');
 const gridsToReset = document.querySelectorAll('.grid-square');
 
 resetButton.addEventListener('click', function() {
-    gridsToReset.forEach(function(square){
-        square.style.backgroundColor = "#FFFFFF";
+    gridsToReset.forEach(function(canvas){
+        canvas.style.backgroundColor = "#FFFFFF";
     })
 });
