@@ -33,7 +33,16 @@ function createGrid(size) {
 
     const rainbowButton = document.querySelector('#grid-rainbow');
     rainbowButton.addEventListener('click', function() {
-        rainbowButton.classList.add('on');
+        if (!rainbowButton.classList.contains('on')){
+            rainbowButton.classList.add('on');
+            rainbowButton.textContent = "Deactivate";
+            rainbowButton.style.border =`2px solid ${TEXT_DARK}`;
+
+        } else {
+            rainbowButton.classList.remove('on');
+            rainbowButton.textContent = "Activate";
+            rainbowButton.style.border ="1px solid #55bcc9";
+        }
     });
     gridColor.addEventListener('click', function() {
         rainbowButton.classList.remove('on');
