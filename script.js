@@ -62,7 +62,18 @@ function createGrid(size) {
         }
     
         gridSquare[x].addEventListener('mouseover', setGridColour);
-    } 
+    }
+    
+    // Reset Grid
+    const resetButton = document.querySelector('#reset');
+    const gridsToReset = document.querySelectorAll('.grid-square');
+
+    resetButton.addEventListener('click', function() {
+        gridsToReset.forEach(function(canvas){
+            canvas.style.backgroundColor = "#FFFFFF";
+        })
+    });
+
 }
 
 createGrid(gridSize);
@@ -97,12 +108,3 @@ hideShowButton.addEventListener('click', function() {
     }
 });
 
-// Reset Grid
-const resetButton = document.querySelector('#reset');
-const gridsToReset = document.querySelectorAll('.grid-square');
-
-resetButton.addEventListener('click', function() {
-    gridsToReset.forEach(function(canvas){
-        canvas.style.backgroundColor = "#FFFFFF";
-    })
-});
