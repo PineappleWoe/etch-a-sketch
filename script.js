@@ -8,9 +8,9 @@ let gridSize = 16;
 
 const etchSketch = document.querySelector('.etch-a-sketch');
 let gridValueGuide = document.createElement('p');
-gridValueGuide.style.color = TEXT_DARK;
-gridValueGuide.textContent = `${gridSize} X ${gridSize}`;
-etchSketch.insertBefore(gridValueGuide, gridContainer);
+    gridValueGuide.style.color = TEXT_DARK;
+    gridValueGuide.textContent = `${gridSize} X ${gridSize}`;
+    etchSketch.insertBefore(gridValueGuide, gridContainer);
 
 
 
@@ -19,26 +19,44 @@ function createGrid(size) {
     for (let i = 0; i < size; i++){
         const gridColumn = document.createElement('div');
         gridColumn.classList.add('grid-square');
-        // gridColumn.textContent = (i + 1);
         gridContainer.appendChild(gridColumn);
         for (let j = 1; j < size; j++){
             const gridRow = document.createElement('div');
             gridRow.classList.add('grid-square');
-            // gridRow.textContent = (j + 1);
             gridContainer.appendChild(gridRow);
-        }
-        // Enable Drawing for Generated Squares
-        let gridSquare = document.querySelectorAll('.grid-square');
-        let gridColor = document.querySelector('#grid-color');
-        for (let i = 0; i < gridSquare.length; i++) {
-            gridSquare[i].addEventListener('mouseover', function() {
-                gridSquare[i].style.backgroundColor = `${gridColor.value}`;
+        }            
+    }
+
+    // Enable Drawing for Generated Squares
+    let gridSquare = document.querySelectorAll('.grid-square');
+    let gridColor = document.querySelector('#grid-color');
+
+    const rainbowButton = document.querySelector('#grid-rainbow');
+    rainbowButton.addEventListener('click', function() {
+        rainbowButton.classList.add('on');
+    });
+    gridColor.addEventListener('click', function() {
+        rainbowButton.classList.remove('on');
+    });
+
+    for (let x = 0; x < gridSquare.length; x++) {
+        if (rainbowButton.classList.contains('on')){
+            let randomColor = Math.floor(Math.random()*16777215).toString(16);
+            let gridRainbow = "#" + randomColor;
+            gridSquare[x].addEventListener('mouseover', function() {
+                gridSquare[x].style.backgroundColor = gridRainbow;
+            })
+        } else {
+            gridSquare[x].addEventListener('mouseover', function() {
+                gridSquare[x].style.backgroundColor = `${gridColor.value}`;
             });
         }
-    }
+    } 
 }
 
 createGrid(gridSize);
+
+
 
 // Grid Size
 const gridSizeSliderValue = document.querySelector('#grid-size');
