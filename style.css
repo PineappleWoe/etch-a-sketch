@@ -58,7 +58,10 @@ h1, h2, h3, h4, h5, h6, p, button{
     justify-content: space-evenly;
     align-items: flex-start;
 }
-.grid-controls__grid-size, .grid-controls__grid-color, .grid-controls__grid-rainbow{
+.grid-controls__grid-size, 
+.grid-controls__grid-color, 
+.grid-controls__grid-rainbow,
+.grid-controls__grid-shade{
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -67,7 +70,7 @@ h1, h2, h3, h4, h5, h6, p, button{
 }
 .slider, .btn{
     height: 27px;
-    width: 50%;
+    width: 80%;
 }
 .rainbow-btn{
     border: 1px solid var(--dark-primary);
@@ -107,7 +110,16 @@ h1, h2, h3, h4, h5, h6, p, button{
     );
     transition: .5s ease;
 }
-
+.shade-btn{
+    border: 1px solid var(--dark-primary);
+    border-radius: 8px;
+    color: #fff;
+    background-color: var(--dark-primary);
+}
+.shade-btn:hover{
+    transform: scale(1.1);
+    transition: .5s ease;
+}
 .grid-controls, .etch-a-sketch{
     border: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: 8px;

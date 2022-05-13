@@ -1,4 +1,5 @@
-const TEXT_DARK = "#252525"
+const TEXT_DARK = "#252525";
+const TEXT_LIGHT = "#CAFAFE";
 
 const gridContainer = document.querySelector('.grid-container');
 let gridSize = 16;
@@ -38,14 +39,32 @@ function createGrid(size) {
             rainbowButton.textContent = "Deactivate";
             rainbowButton.style.border =`2px solid ${TEXT_DARK}`;
 
+            shadeButton.classList.remove('on');
         } else {
             rainbowButton.classList.remove('on');
             rainbowButton.textContent = "Activate";
             rainbowButton.style.border ="1px solid #55bcc9";
         }
     });
+    const shadeButton = document.querySelector('#grid-shade');
+    shadeButton.addEventListener('click', function() {
+        if (!shadeButton.classList.contains('on')){
+            shadeButton.classList.add('on');
+            shadeButton.textContent = "Deactivate";
+            shadeButton.style.color = TEXT_DARK;
+            shadeButton.style.backgroundColor = TEXT_LIGHT;
+
+            rainbowButton.classList.remove('on');
+        } else {
+            shadeButton.classList.remove('on');
+            shadeButton.textContent = "Activate";
+            shadeButton.style.color = "#FFFFFF";
+            shadeButton.style.backgroundColor = "#55BCC9";
+        };
+    })
     gridColor.addEventListener('click', function() {
         rainbowButton.classList.remove('on');
+        shadeButton.classList.remove('on');
     });
 
     for (let x = 0; x < gridSquare.length; x++) {
@@ -55,9 +74,12 @@ function createGrid(size) {
             if (rainbowButton.classList.contains('on')){
                 let randomColor = Math.floor(Math.random()*16777215).toString(16);
                 let gridRainbow = "#" + randomColor;
-                gridSquare[x].style.backgroundColor = gridRainbow;
+                this.style.backgroundColor = gridRainbow;
+            } else if (shadeButton.classList.contains('on')){
+                this.style.backgroundColor = `${gridColor.value}`
+                this.style.opacity = (parseFloat(this.style.opacity) || 0) + 0.2;
             } else {
-                gridSquare[x].style.backgroundColor = `${gridColor.value}`
+                this.style.backgroundColor = `${gridColor.value}`
             }
         }
     
